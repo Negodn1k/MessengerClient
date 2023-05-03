@@ -22,7 +22,7 @@ public class LogIn {
     }
 
     private void auth(String login) throws IOException {
-        FileReader fileReader = new FileReader("C:\\Users\\Havka\\IdeaProjects\\MessengerClient\\src\\main" +
+        FileReader fileReader = new FileReader("C:\\Users\\" + System.getProperty("user.name") + "\\IdeaProjects\\MessengerClient\\src\\main" +
                 "\\java\\com\\client\\content\\idBase.txt");
         BufferedReader reader = new BufferedReader(fileReader);
 
