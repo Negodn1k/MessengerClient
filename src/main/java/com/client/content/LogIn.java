@@ -1,24 +1,41 @@
 package com.client.content;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class LogIn {
+public class LogIn extends MessengerController{
     @FXML
     private TextField loginField;
 
     @FXML
     private Button loginButton;
+
+
     @FXML
-    protected void loginButtonClick() throws IOException {
+    protected void logIn() throws IOException {
         auth(loginField.getText());
+    }
+
+    @FXML
+    protected void keys() {
+        loginField.setOnKeyPressed(keyEvent -> {
+            switch (keyEvent.getCode()) {
+                case ENTER -> {
+                    try {
+                        auth(loginField.getText());
+                    } catch (IOException e) {
+                        System.out.println("" + e);
+                    }
+                }
+                case ESCAPE -> System.exit(1);
+            }
+        });
     }
 
     private void auth(String login) throws IOException {
@@ -36,15 +53,5 @@ public class LogIn {
             }
             line = reader.readLine();
         }
-    }
-
-    //@Override
-    private void openMessageWindow() throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(LogIn.class.getResource("message.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Messenger");
-        stage.setScene(scene);
-        stage.show();
     }
 }

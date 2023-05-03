@@ -3,7 +3,12 @@ package com.client.content;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class MessengerController {
     private final Data data = new Data();
@@ -24,11 +29,14 @@ public class MessengerController {
 
     @FXML
     private ListView<String> friendList;
+
     @FXML
-    protected void friendListView() {
+    protected void messengerView() {
         ObservableList<String> list = FXCollections.observableArrayList(data.getData());
         friendList.setItems(list);
+
         openDialogue();
+        keyFunctions();
     }
 
     private void openDialogue() {
@@ -45,5 +53,23 @@ public class MessengerController {
         list.add(messageField.getText());
         messageHistory.setItems(list);
         messageField.clear();
+    }
+
+    private void keyFunctions() {
+        messageField.setOnKeyPressed(keyEvent -> {
+            switch (keyEvent.getCode()) {
+                case ENTER -> sendButtonClick();
+                case ESCAPE -> dialogue.setVisible(false);
+            }
+        });
+    }
+
+    public void openMessageWindow() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(LogIn.class.getResource("message.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Messenger");
+        stage.setScene(scene);
+        stage.show();
     }
 }

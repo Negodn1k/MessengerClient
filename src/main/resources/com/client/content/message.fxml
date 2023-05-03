@@ -3,72 +3,76 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseEntered="#friendListView" prefHeight="346.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.content.MessengerController">
-   <children>
-      <MenuBar>
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#friendListView" text="Refresh" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-               <children>
-                  <ListView fx:id="friendList" layoutY="-7.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-               <children>
-                  <SplitPane fx:id="dialogue" dividerPositions="0.10410094637223975" layoutX="6.0" layoutY="6.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <items>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                           <children>
-                              <Label fx:id="name" layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="129.0" text="example" />
-                           </children>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      onMouseEntered="#messengerView" prefHeight="346.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.client.content.MessengerController">
+    <MenuBar>
+        <Menu mnemonicParsing="false" text="File">
+            <MenuItem mnemonicParsing="false" onAction="#messengerView" text="Refresh"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+            <MenuItem mnemonicParsing="false" text="Delete"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+            <MenuItem mnemonicParsing="false" text="About"/>
+        </Menu>
+    </MenuBar>
+    <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <ListView fx:id="friendList" layoutY="-7.0" prefHeight="200.0" prefWidth="200.0"
+                      AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                      AnchorPane.topAnchor="0.0"/>
+        </AnchorPane>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+            <SplitPane fx:id="dialogue" dividerPositions="0.10410094637223975" layoutX="6.0" layoutY="6.0"
+                       orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0"
+                       AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                    <Label fx:id="name" layoutX="14.0" layoutY="6.0" prefHeight="17.0" prefWidth="129.0"
+                           text="example"/>
+                </AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="237.0" prefWidth="415.0">
+                    <SplitPane dividerPositions="0.7526881720430108" layoutX="48.0" layoutY="20.0"
+                               orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0"
+                               AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                               AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="173.0"
+                                    prefWidth="413.0">
+                            <SplitPane dividerPositions="0.5" layoutX="176.0" layoutY="58.0"
+                                       prefHeight="160.0" prefWidth="200.0"
+                                       AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                       AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <AnchorPane minHeight="0.0" minWidth="0.0"
+                                            prefHeight="160.0" prefWidth="100.0"/>
+                                <AnchorPane minHeight="0.0" minWidth="0.0"
+                                            prefHeight="160.0" prefWidth="100.0">
+                                    <ListView fx:id="messageHistory" layoutX="-15.0"
+                                              layoutY="-14.0" prefHeight="200.0"
+                                              prefWidth="200.0"
+                                              AnchorPane.bottomAnchor="0.0"
+                                              AnchorPane.leftAnchor="0.0"
+                                              AnchorPane.rightAnchor="0.0"
+                                              AnchorPane.topAnchor="0.0"/>
+                                </AnchorPane>
+                            </SplitPane>
                         </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="237.0" prefWidth="415.0">
-                           <children>
-                              <SplitPane dividerPositions="0.7526881720430108" layoutX="48.0" layoutY="20.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                <items>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="173.0" prefWidth="413.0">
-                                       <children>
-                                          <SplitPane dividerPositions="0.5" layoutX="176.0" layoutY="58.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                            <items>
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
-                                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-                                                   <children>
-                                                      <ListView fx:id="messageHistory" layoutX="-15.0" layoutY="-14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                                                   </children></AnchorPane>
-                                            </items>
-                                          </SplitPane>
-                                       </children></AnchorPane>
-                                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                                       <children>
-                                          <TextField fx:id="messageField" layoutX="14.0" layoutY="14.0" prefHeight="38.0" prefWidth="319.0" promptText="Message" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="14.0" />
-                                          <Button fx:id="sendButton" layoutX="347.0" layoutY="14.0" mnemonicParsing="false" onAction="#sendButtonClick" text="Send" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
-                                       </children>
-                                    </AnchorPane>
-                                </items>
-                              </SplitPane>
-                           </children></AnchorPane>
-                    </items>
-                  </SplitPane>
-               </children></AnchorPane>
-        </items>
-      </SplitPane>
-   </children>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0"
+                                    prefWidth="160.0">
+                            <TextField fx:id="messageField" layoutX="14.0" layoutY="14.0"
+                                       prefHeight="38.0" prefWidth="319.0" promptText="Message"
+                                       AnchorPane.bottomAnchor="14.0"
+                                       AnchorPane.leftAnchor="14.0"
+                                       AnchorPane.rightAnchor="80.0"
+                                       AnchorPane.topAnchor="14.0"/>
+                            <Button layoutX="347.0" layoutY="14.0"
+                                    mnemonicParsing="false" onAction="#sendButtonClick"
+                                    text="Send" AnchorPane.bottomAnchor="14.0"
+                                    AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="14.0"
+                                    AnchorPane.topAnchor="14.0"/>
+                        </AnchorPane>
+                    </SplitPane>
+                </AnchorPane>
+            </SplitPane>
+        </AnchorPane>
+    </SplitPane>
 </VBox>
